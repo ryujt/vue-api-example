@@ -1,18 +1,34 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div class="row flex flex-center">
+        <q-btn @click="getUserInfo" label="사용자 정보 가져오기" color="primary" />
+    </div>
+    <div class="row q-pa-md">
+        <q-input v-model="result" type="textarea" style="width: 100%;" rows="20" square outlined  />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import apiUsers from '@/api/users';
 
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
+    data() {
+        return {
+            result: "",
+        }
+    },
+
+    methods: {
+        getUserInfo() {
+            apiUsers.getUserDetail(1)
+            .then(res => {
+                this.result = JSON.stringify(res.data, null, 4);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        },
+    },
 }
 </script>

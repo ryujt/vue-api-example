@@ -3,15 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "vue-cli-service serve --mode dev",
+    "prod": "vue-cli-service serve --mode prod",
+    "build-dev": "vue-cli-service build --mode dev",
+    "build-prod": "vue-cli-service build --mode prod",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "pinia": "^2.0.21",
+    "pinia-plugin-persistedstate": "^2.1.1",
     "quasar": "^2.0.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
